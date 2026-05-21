@@ -19,8 +19,8 @@ export default function Projects() {
         </div>
 
         <div className='flex flex-col gap-8'>
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {projects.map((project, i) => (
+            <ProjectCard key={project.id} project={project} priority={i === 0} />
           ))}
         </div>
       </div>

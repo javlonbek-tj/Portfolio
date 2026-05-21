@@ -8,9 +8,10 @@ import type { Project } from '@/data/portfolio';
 
 type Props = {
   project: Project;
+  priority?: boolean;
 };
 
-export default function ProjectCard({ project }: Props) {
+export default function ProjectCard({ project, priority = false }: Props) {
   return (
     <div className='rounded-2xl overflow-hidden flex flex-col lg:flex-row border border-gray-200 dark:border-gray-700/50 shadow-sm hover:shadow-md dark:hover:shadow-gray-900/50 transition-shadow duration-300'>
       {/* Screenshot */}
@@ -42,6 +43,8 @@ export default function ProjectCard({ project }: Props) {
                         src={image}
                         alt={`${project.title} screenshot`}
                         fill
+                        priority={priority}
+                        sizes='(max-width: 1024px) 100vw, 45vw'
                         className='object-cover rounded-xl shadow-md'
                       />
                       {project.images.length > 1 && (
